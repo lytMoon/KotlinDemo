@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.MyFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlankFragment1">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="我是第一个fragment" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_marginTop="100dp"
+        android:id="@+id/fragment1_vp2"
+        android:background="#FFFAD2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+</view.MyFrameLayout>
