@@ -19,7 +19,7 @@ import android.widget.FrameLayout
  *      }
  *      return consume;
  * }
- *   在最先执行的dispatchTouchEvent中根据onInterceptTouchEvent(ev)来判断是否拦截事件，如果返回true则代表拦截时间，交给该view的OnTouchEvent
+ *   在最先执行的dispatchTouchEvent中根据onInterceptTouchEvent(ev)来判断是否拦截事件，如果返回true则代表拦截事件，交给该view的OnTouchEvent
  *   处理，如果不拦截则交给子view的dispatchTouchEvent()事件里面。如此反复直到事件被最终处理。
  *
  *   优先级顺序：
@@ -33,16 +33,16 @@ import android.widget.FrameLayout
  *   down 找到拦截的view
  *   一些规律
  *
- *   1正常情况下，一个事件序列只能被一个View拦截且消耗
+ *    1正常情况下，一个事件序列只能被一个View拦截且消耗
  *
- *   2某个View一旦决定拦截，那么这一个事件序列都只能由它来处理（如果事件序列能够传递给它的话），并且它的onInterceptTouchEvent不会再被调
- *   用。这条也很好理解，就是说当一个View决定拦截一个事件后，那么系统会把同一个事件序列内的其他方法都直接交给它来处理，因此就不用再调用这个
- *   View的onInterceptTouchEvent去询问它是否要拦截了。
+ *    2某个View一旦决定拦截，那么这一个事件序列都只能由它来处理（如果事件序列能够传递给它的话），并且它的onInterceptTouchEvent不会再被调
+ *    用。这条也很好理解，就是说当一个View决定拦截一个事件后，那么系统会把同一个事件序列内的其他方法都直接交给它来处理，因此就不用再调用这个
+ *    View的onInterceptTouchEvent去询问它是否要拦截了。
  *
- *   3某个View一旦开始处理事件，如果它不消耗ACTION_DOWN事件（onTouchEvent返回了false），那么同一事件序列中的其他事件都不会再交给它来
- *   处理，并且事件将重新交由它的父元素去处理，即父元素的onTouchEvent会被调用。意思就是事件一旦交给一个View处理，那么它就必须消耗掉，否则同一
- *   事件序列中剩下的事件就不再交给它来处理了，这就好比上级交给程序员一件事，如果这件事没有处理好，短期内上级就不敢再把事情交给这个程序员做
- *   了，二者是类似的道理
+ *    3某个View一旦开始处理事件，如果它不消耗ACTION_DOWN事件（onTouchEvent返回了false），那么同一事件序列中的其他事件都不会再交给它来
+ *    处理，并且事件将重新交由它的父元素去处理，即父元素的onTouchEvent会被调用。意思就是事件一旦交给一个View处理，那么它就必须消耗掉，否则同一
+ *    事件序列中剩下的事件就不再交给它来处理了，这就好比上级交给程序员一件事，如果这件事没有处理好，短期内上级就不敢再把事情交给这个程序员做
+ *    了，二者是类似的道理
  *
  *    4ViewGroup默认不拦截任何事件。Android源码中ViewGroup的onInterceptTouch-Event方法默认返回false。
  *
@@ -50,8 +50,6 @@ import android.widget.FrameLayout
  *
  *    6View的onTouchEvent默认都会消耗事件（返回true），除非它是不可点击的（clickable 和longClickable同时为false）。View的longClickable属性默认都为
  *    false，clickable属性要分情况，比如Button的clickable属性默认为true，而TextView的clickable属性默认为false。
- *
- *
  *
  *
  */
@@ -66,11 +64,13 @@ class MyFrameLayout @JvmOverloads constructor(
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         when (ev?.action) {
             MotionEvent.ACTION_DOWN -> {
-                // 禁止parent拦截down事件
-                parent.requestDisallowInterceptTouchEvent(true);
+                //禁止parent拦截down事件
+                //但是事件依然向下分发。
+                parent.requestDisallowInterceptTouchEvent(true)
             }
 
             MotionEvent.ACTION_MOVE -> {
+
             }
 
             MotionEvent.ACTION_UP -> {

@@ -6,9 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/button_view_act"
+        android:layout_width="wrap_content"
+        android:text="点我跳转自定义View的activity"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="60dp"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/main_vp2"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
