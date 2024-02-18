@@ -4,14 +4,19 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.ViewDemo</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf382e55-ec7f-42a7-bd96-31549c29b81c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="bf382e55-ec7f-42a7-bd96-31549c29b81c" name="Changes" comment=":art: 自定义实现一个画布" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,21 +31,38 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="2cRVY47NWqfTvXfw1IxG3XYkJxW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "android-custom-viewC:/Users/29364/Desktop/KotlinDemo/view/app/src/main/java/com/example/viewdemo/view/CircleView.kt_SELECTED": "CircleView",
+    "android-custom-viewC:/Users/29364/Desktop/KotlinDemo/view/app/src/main/java/com/example/viewdemo/view/LikeClickLayout.kt_SELECTED": "LikeClickLayout",
+    "android-custom-viewC:/Users/29364/Desktop/KotlinDemo/view/app/src/main/java/com/example/viewdemo/view/MyFrameLayout.kt_SELECTED": "LikeClickLayout",
+    "android-custom-viewE:/SDK/sources/android-34/android/view/View.java_SELECTED": "View",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
     "git-widget-placeholder": "main",
     "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
@@ -123,6 +145,19 @@
       <option name="presentableId" value="Default" />
       <updated>1708074421297</updated>
     </task>
+    <task id="LOCAL-00001" summary=":art: 自定义实现一个画布">
+      <option name="closed" value="true" />
+      <created>1708086566304</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708086566304</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":art: 自定义实现一个画布" />
+    <option name="LAST_COMMIT_MESSAGE" value=":art: 自定义实现一个画布" />
   </component>
 </project>
