@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.handler"
+    namespace = "com.example.java"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.handler"
+        applicationId = "com.example.java"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -41,12 +41,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    // 依赖 LeakCanary，检查内存泄漏 https://github.com/square/leakcanary
-    implementation("com.squareup.leakcanary:leakcanary-android:2.10")
-
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-
 }
