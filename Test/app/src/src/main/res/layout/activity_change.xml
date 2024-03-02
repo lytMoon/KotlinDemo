@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ic_launcher3"
+    tools:context=".ChangeActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/blue"
+        android:text="修改学生信息"
+        />
+    <EditText
+        android:id="@+id/tvstudentName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="姓名：                                    "
+        android:layout_gravity="center"
+        android:maxEms="18"
+        android:minHeight="48dp"
+        android:inputType="text"
+        />
+    <EditText
+        android:id="@+id/tvstudentGender3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="性别：                                    "
+        android:layout_gravity="center"
+        android:maxEms="18"
+        android:minHeight="48dp"
+        android:inputType="text"
+        />
+    <EditText
+        android:id="@+id/tvstudentAfterchangeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="修改之后姓名：                          "
+        android:layout_gravity="center"
+        android:maxEms="18"
+        android:minHeight="48dp"
+        android:inputType="text"
+        />
+    <EditText
+    android:id="@+id/tvstudentAfterchangeGender"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:hint="修改之后性别：                          "
+    android:layout_gravity="center"
+    android:maxEms="18"
+    android:minHeight="48dp"
+    android:inputType="text"
+    />
+    <EditText
+        android:id="@+id/tvstudentAfterchangeAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="修改之后年龄：                          "
+        android:layout_gravity="center"
+        android:maxEms="18"
+        android:minHeight="48dp"
+        android:inputType="text"
+        />
+    <EditText
+        android:id="@+id/tvstudentAfterchangeLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="修改之后住址：                          "
+        android:layout_gravity="center"
+        android:maxEms="18"
+        android:minHeight="48dp"
+        android:inputType="text"
+        />
+    <Button
+        android:id="@+id/btChangeData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Change Data"
+        android:backgroundTint="#3299cc"
+        android:textSize="16dp"
+        />
+</LinearLayout>
