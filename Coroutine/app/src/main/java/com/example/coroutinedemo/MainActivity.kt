@@ -1,9 +1,11 @@
 package com.example.coroutinedemo
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.coroutines.CoroutineStart
@@ -19,6 +21,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mTv: TextView
+    private lateinit var mBtn: Button
 
     @SuppressLint("MissingInflatedId")
     @OptIn(DelicateCoroutinesApi::class)
@@ -26,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mTv = findViewById(R.id.tv_name)
+        mBtn = findViewById(R.id.btn_intent)
+
+        mBtn.setOnClickListener {
+            startActivity(Intent(this,MainActivity2::class.java))
+        }
+
 
 
 //        start()
@@ -35,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 //        testDefaultStart()
 //        testLazyStart()
 //        testAtomicStart()
-        testCoroutineStart()
+//        testCoroutineStart()
 
 
     }
