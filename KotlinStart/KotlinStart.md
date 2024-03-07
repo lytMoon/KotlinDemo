@@ -1112,3 +1112,60 @@ Kotlin十分重视对空指针的检查，甚至把空指针异的检查提前�
     ```
 
 通过这些机制，Kotlin帮助开发者在编译时期就捕获可能的空引用错误，从而减少运行时异常的发生。这些特性使得Kotlin代码更加安全和清晰。
+
+## Kotlin中的小魔术
+
+在《第一行代码》中还有一些"Kotlin中的小魔术"--字符串内嵌表达式、函数的参数默认值。下面简单介绍一下
+
+字符串内嵌表达式是Kotlin语言中的一个非常有用的特性，它允许你在字符串中直接插入变量或表达式。这种方式不仅使代码更简洁，而且提高了可读性。在Kotlin中，你可以使用`$`符号来引用变量，或者使用`${}`来引用更复杂的表达式。以下是一些例子：
+
+```java
+val name = "Alice"
+// 使用变量
+println("Hello, $name!") // 输出：Hello, Alice!
+
+// 使用表达式
+val count = 5
+println("I have ${count + 1} apples.") // 输出：I have 6 apples.
+
+// 使用对象的属性
+val person = Person("Bob", 30)
+println("Name: ${person.name}, Age: ${person.age}") // 输出：Name: Bob, Age: 30
+
+```
+
+你可以理解为在java中我们可以通过$引用单个变量，如果变量比较长或者需要进行一些操作，使用${},这在我们以后开发中会经常用到，如进行一些日志的输出。
+
+函数的参数默认值也就是在传参的时候如果我们不指定的话可以使用原来定义好的默认值
+
+在Kotlin中，函数的参数可以有默认值，这是一种非常方便的特性，它可以减少函数重载的需要。当调用一个函数时，如果某个参数被省略，那么将使用该参数的默认值。这样，你就不必为每个可能的参数组合编写一个单独的函数。
+
+例如，假设我们有一个打印消息的函数，我们可以为其参数提供默认值：
+
+```kotlin
+fun printMessage(message: String, prefix: String = "Info", suffix: String = "End") {
+    println("[$prefix] $message [$suffix]")
+}
+
+```
+
+在这个例子中，`prefix`和`suffix`参数有默认值`"Info"`和`"End"`。当调用`printMessage`时，你可以只传递`message`参数：
+
+```kotlin
+printMessage("Hello, Kotlin!") // 输出：[Info] Hello, Kotlin! [End]
+
+```
+
+如果你想覆盖默认值，可以像这样传递所有参数：
+
+```kotlin
+printMessage("Hello, Kotlin!", "Start", "Finish") // 输出：[Start] Hello, Kotlin! [Finish]
+
+```
+
+或者，如果你只想覆盖其中一个默认值，可以使用命名参数：
+
+```
+printMessage("Hello, Kotlin!", suffix = "Done") // 输出：[Info] Hello, Kotlin! [Done]
+```
+
