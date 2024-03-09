@@ -1,6 +1,6 @@
 # Kotlin入门
 
-​    相信大家在经历了一个学习的学习，应该对我们下学期要学习的Kotlin语言有过一定的听闻。大家应该或多或少对Kotlin这么语言有些问题，那么，接下来我们将真正踏入Kotlin安卓开发学习的过程.
+相信大家在经历了一个学期的学习，应该对我们下学期要学习的Kotlin语言有过一定的听闻。大家应该或多或少对Kotlin这么语言有些问题，那么，接下来我们将真正踏入Kotlin安卓开发学习的过程.
 
 ##  Kotlin的一些历史
 
@@ -200,7 +200,7 @@ fun minChoose(a: Int, b: Int): Int = if (a < b) a else b
 
 ##### `when` 语句
 
-`when` 类似于 Java 中的 `switch` 语句，但更加强大。它可以用作表达式或语句，并支持多种类型的条件匹配。
+`when` 类似于 Java 中的 `switch` 语句，但更加强大。它可以用作表达式或语句，并支持**多种类型**的条件匹配。
 
 ```kotlin
 val x = 1
@@ -222,7 +222,7 @@ when (x) {
         1 -> {
             fun1()
         }
-        2 ->{} println("x 等于 2")
+        2 -> println("x 等于 2")
         else -> println("x 不是 1 也不是 2")
     }
 ```
@@ -260,7 +260,7 @@ printTypeInfo(true) // 输出：这是一个布尔值
 
 这里的holder是`ViewHolder`类型的但是`ViewHolder`有很多子类，而且这个`onBindViewHolder()`疯狂回调往里面传递各种类型的`ViewHolder`,这里就要用到`when is` 语句，根据不同的对象类型执行不同的逻辑，怎么样，是不是很酷。
 
-```
+```kotlin
    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         when (holder) {
             is RvNewsTopViewHolder -> {}
@@ -378,7 +378,7 @@ class Dog : Animal() {
 
 相信大家对构造函数的概念(可以在类初始化的时候对一些变量进行赋值)都已经了解了。在Kotlin中，构造函数分为**主构造函数**和**次构造函数**。下面要讲的概念可以有点抽象，大家可以尝试着去理解一下，对安卓开发理解别人代码这一方面还是有一定的帮助的。
 
-> Kotlin中的类可以有一个主构造函数和一个或**多个次构造函数**。主构造函数是类头的一部分，它跟在类名后面。
+> Kotlin中的类**可以**有一个主构造函数和一个或**多个次构造函数**。主构造函数是类头的一部分，它跟在类名后面。
 
 主构造函数在类后面小括号里面进行变量的声明
 
@@ -393,7 +393,7 @@ class Person(val name: String, var age: Int) {
 ```java
 public class Person {
     private final String name;
-    private final int age;
+    private int age;
 
     public Person(String name, int age) {
         this.name = name;
@@ -470,9 +470,7 @@ class Person(val name: String, var age: Int) {
 
 在Kotlin中，如果一个类没有显式定义主构造函数，那么它可以有一个或多个次构造函数。每个次构造函数都需要通过`super`关键字来调用父类的构造函数（如果有的话），因为Kotlin中所有类都有一个超类`Any`，它是所有类的默认父类。
 
-```
 
-```
 
 如果类没有父类（除了`Any`），次构造函数就不需要使用`this`或`super`来调用另一个构造函数。以下是一个没有主构造函数的类，只有次构造函数的例子：
 
@@ -590,12 +588,12 @@ fun main() {
 
 相信大家学过Java应该都知道我们在定义变量或者方法的时候前面会使用一些修饰符来表示该方法或者变量的可见性。当然在Kotlin中也有这些东西，不过有些是与Java有所区别
 
-| Java修饰符 | Kotlin修饰符 | 描述                         |
-| :--------- | :----------- | :--------------------------- |
-| public     | public       | 没有限制，任何地方都可以访问 |
-| protected  | protected    | 当前类及其子类可以访问       |
-| default    | (无直接对应) | 同一包内可以访问             |
-| private    | private      | 当前类内可以访问             |
+| Java修饰符 | Kotlin修饰符 | 描述                                     |
+| :--------- | :----------- | :--------------------------------------- |
+| public     | public       | 没有限制，任何地方都可以访问(同一个模块) |
+| protected  | protected    | 当前类及其子类可以访问                   |
+| default    | (无直接对应) | 同一包内可以访问                         |
+| private    | private      | 当前类内可以访问                         |
 
 另外Kotlin还多了一个
 
@@ -605,7 +603,7 @@ fun main() {
 
 Kotlin中无default关键字，这点大家需要注意。
 
-一般情况下，如果我们在一个类里面编写的方法或者变量我们不希望暴露在外或者我们目前不清楚是否需要被其他类调用或者改变，都要加上private关键字，希望大家养成良好的编程习惯。
+一般情况下，如果我们在一个类里面编写的方法或者变量我们不希望暴露在外或者我们目前不清楚是否需要被其他类调用或者改变，都要加上`private`关键字，希望大家养成良好的编程习惯。
 
 ### 数据类与单例类
 
@@ -697,7 +695,7 @@ fun main() {
 
 #### 单例类
 
-相比大家都或多或少听说过单例模式，单例模式确保了全局中只有一个类示例存在。我们经常把一些工具类的方法放在单例类里面(也就是把工具类变成单例类)
+相比大家都或多或少听说过单例模式，单例模式确保了**全局中只有一个类示例**存在。我们经常把一些工具类的方法放在单例类里面(也就是把工具类变成单例类)
 
 我们先来看一种Java实现单例类方法
 
@@ -729,7 +727,7 @@ public class Singleton {
 
 [Java单例模式](https://www.programiz.com/java-programming/singleton)
 
-好，那么回归Kotlin，在Kotlin中我们实现单例模式只需要用使用**Object**关键字
+好，那么回归Kotlin，在Kotlin中我们实现单例模式只需要用使用**object**关键字
 
 例如
 
@@ -911,14 +909,15 @@ println(sum(1, 2)) // 输出结果为3
 new Thread(new Runnable(){
     @override
     public void run(){
-    
+                    
+  
     }
 }).start()
 ```
 
 这里使用匿名类的写法，我们创建了一个Runnable接口的匿名类实例，并将它传给了Thread类的构造方法。最后调用Thread类的**start()**方法来开启这个线程，并执行我们重写在run方法中的逻辑。
 
-Kotlin中的匿名类的写法与Java不用，Kotlin完全舍弃了new关键字，因此创建匿名类实例的时候就不能再使用new关键字了，而是改成了object关键字。
+Kotlin中的匿名类的写法与Java不用，Kotlin完全舍弃了**new**关键字，因此创建匿名类实例的时候就不能再使用new关键字了，而是改成了**object**关键字。
 
 我们来看一下Kotlin中的写法
 
@@ -930,7 +929,7 @@ Kotlin中的匿名类的写法与Java不用，Kotlin完全舍弃了new关键字�
         }).start()
 ```
 
-Thread要求接受一个runnable的对象，我们使用object关键字通过匿名内部类的方式传入，顺便重写里面的run方法。
+Thread要求接受一个runnable的对象，我们使用**object**关键字通过匿名内部类的方式传入，顺便重写里面的run方法。
 
 这么一对比的话可能大家看不到什么差别。
 
@@ -940,7 +939,7 @@ Thread要求接受一个runnable的对象，我们使用object关键字通过匿
 
 > 单抽象方法（Single Abstract Method，简称SAM）是指在Java和类似语言中，只有一个抽象方法的接口。这种接口通常用于表示一个特定的操作或行为，并且可以通过匿名内部类或Lambda表达式来实现。
 >
-> 在Java中，SAM接口是只有一个抽象方法的接口，常用于创建匿名内部类的实例。而在Kotlin中，你可以直接传递一个Lambda表达式来代替整个匿名内部类，这使得代码更加简洁和易读。
+> 在Java中，SAM接口是只有一个抽象方法的接口，常用于创建匿名内部类的实例。而在Kotlin中，你可以直接传递一个**Lambda表达式来代替整个匿名内部类**，这使得代码更加简洁和易读。
 
 把上面的简单总结一下就是需要有  **Java方法** **一个接口**   **一个方法**
 

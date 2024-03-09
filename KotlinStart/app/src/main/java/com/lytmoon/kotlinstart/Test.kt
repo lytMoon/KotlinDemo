@@ -2,12 +2,22 @@ package com.lytmoon.kotlinstart
 
 class Test {
 
+
 }
+
 
 fun main() {
 
-//    val age = 18
-//    val name = "周博"
+
+// 使用函数
+    printTypeInfo("Hello") // 输出：这是一个字符串
+    printTypeInfo(123) // 输出：这是一个整数
+    printTypeInfo(true) // 输出：这是一个布尔值
+
+    val demo = Demo()
+
+    val age = 18
+    val name = "周博"
 //    age=11
 
 //   println(greet("Android"))
@@ -128,7 +138,7 @@ class Person2 {
     constructor(name: String, age: Int, weight: Int) {
         this.name = name
         this.age = age
-        this.weight=weight
+        this.weight = weight
     }
 
     //这里的this会调用适合的次构造函数,当然也是可以不委托的
@@ -137,6 +147,16 @@ class Person2 {
     }
 
 }
+fun printTypeInfo(obj: Any) {
+    when (obj) {
+        is String -> println("这是一个字符串")
+        is Int -> println("这是一个整数")
+        is Boolean -> println("这是一个布尔值")
+        else -> println("未知类型")
+    }
+}
+
+
 
 
 

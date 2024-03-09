@@ -8,16 +8,17 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mTextView: TextView;
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mTextView=findViewById(R.id.tv_main)
-        mTextView.setOnClickListener{
+        mTextView = findViewById(R.id.tv_main)
+        mTextView.setOnClickListener {
             it
         }
 
-        Thread(object :Runnable{
+        Thread(object : Runnable {
             override fun run() {
                 //执行自己的逻辑
             }
@@ -27,15 +28,23 @@ class MainActivity : AppCompatActivity() {
             println("")
         }).start()
 
-        Thread(){
+        Thread() {
             println("")
         }.start()
 
 
-        Thread{
+        Thread {
             println("")
         }.start()
 
+        mTextView = findViewById<TextView?>(R.id.tv_main).apply {
+            text = "ijweoijfw"
+            setOnClickListener {
+                println()
+            }
+            isActivated = false
+            text = "ewfewfwef"
+        }
 
 
     }
