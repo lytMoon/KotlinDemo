@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
@@ -22,6 +24,24 @@ class MainActivity2 : AppCompatActivity() {
             true
         }
 
+        val handler = Handler(Looper.myLooper()!!){
+
+            true
+        }
+
+        /**
+         * 第二种创建方式
+         * 继承handler
+         */
+        class myHandler: Handler() {
+            override fun handleMessage(msg: Message) {
+                super.handleMessage(msg)
+            }
+
+        }
+
+
+
         /**
          * 这里的消息先后处理顺序应该是132 也就是说
          * handler维护的队列链表的顺序是132
@@ -29,6 +49,7 @@ class MainActivity2 : AppCompatActivity() {
         val msg1 = handler.obtainMessage()
         msg1.what = 1
         handler.sendMessage(msg1)
+
 
         val msg2 = handler.obtainMessage()
         msg2.what = 2
