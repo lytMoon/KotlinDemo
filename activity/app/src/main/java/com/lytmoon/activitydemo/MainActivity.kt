@@ -9,6 +9,7 @@ import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mButton :Button
+    private lateinit var mButton1 :Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,6 +44,12 @@ class MainActivity : AppCompatActivity() {
                 //当前的flag设置在mainAct里面
                 intent.addFlags(FLAG_ACTIVITY_SINGLE_TOP)
                 startActivity(intent)
+            }
+        }
+
+        mButton1=findViewById<Button?>(R.id.main_btn1).apply {
+            setOnClickListener {
+                startActivity(Intent(this@MainActivity,MainActivity3::class.java))
             }
         }
     }
