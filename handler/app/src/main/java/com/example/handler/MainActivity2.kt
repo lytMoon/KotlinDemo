@@ -1,14 +1,14 @@
 package com.example.handler
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
 import android.os.Message
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var handler: Handler
@@ -18,28 +18,31 @@ class MainActivity2 : AppCompatActivity() {
         val ht = HandlerThread("Handler")
         ht.start()
 
+
         handler = Handler(ht.looper) { msg ->
             Toast.makeText(this, msg.what.toString(), Toast.LENGTH_SHORT).show()
             Log.d("LogTest", "测试数据:${Thread.currentThread()}")
             true
         }
 
-        val handler = Handler(Looper.myLooper()!!){
+        val handler = Handler(Looper.myLooper()!!) {
 
             true
         }
+
+        val handlerThread = HandlerThread("hi")
+
 
         /**
          * 第二种创建方式
          * 继承handler
          */
-        class myHandler: Handler() {
+        class myHandler : Handler() {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
             }
 
         }
-
 
 
         /**
