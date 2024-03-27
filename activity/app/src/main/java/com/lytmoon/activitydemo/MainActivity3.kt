@@ -6,6 +6,7 @@ import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.MessageQueue
 import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
@@ -22,6 +23,7 @@ class MainActivity3 : AppCompatActivity() {
 
         val ans = savedInstanceState?.getString("lytMoon")
         Log.d("8494948", "测试数据${ans}")
+
     }
 
     private fun initView() {
@@ -31,7 +33,7 @@ class MainActivity3 : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        mButton2 = findViewById<Button?>(R.id.ac3_button2).apply {
+        mButton2 = findViewById<Button>(R.id.ac3_button2).apply {
             setOnClickListener {
                 val intent = Intent(this@MainActivity3, MainActivity3::class.java)
                 intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
@@ -55,14 +57,12 @@ class MainActivity3 : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        Log.d("LogTest", "onPause()")
+        Log.d("LogTest", "onPause")
     }
 
     override fun onStop() {
         super.onStop()
         Log.d("LogTest", "onStop")
-
-
     }
 
     override fun onDestroy() {
@@ -73,15 +73,13 @@ class MainActivity3 : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-
+        Log.d("LogTest", "onDestroy")
     }
 
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-
         Log.d("LogTest", "onConfigurationChanged")
-
 
     }
 
@@ -102,5 +100,6 @@ class MainActivity3 : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
     }
+
 
 }

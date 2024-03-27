@@ -7,6 +7,7 @@ import android.widget.Button
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var mBtn:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
