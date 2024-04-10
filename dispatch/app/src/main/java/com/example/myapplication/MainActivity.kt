@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         val mVp: ViewPager2 = findViewById(R.id.main_vp2)
         val fragmentAdapter = MyFragmentAdapter(this)
         val mView: Button = findViewById(R.id.button_view_act)
+
+
+
         mView.setOnClickListener {
             val intent = Intent(this, ViewActivity::class.java)
             startActivity(intent)
