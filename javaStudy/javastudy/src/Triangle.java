@@ -4,7 +4,7 @@ public class Triangle {
     private double a, b, c;
 
     public Triangle(double a, double b, double c) {
-        if (isValidTriangle(a, b, c)) {
+        if (a + b > c && a + c > b && b + c > a) {
             this.a = a;
             this.b = b;
             this.c = c;
@@ -13,52 +13,6 @@ public class Triangle {
             this.b = 0;
             this.c = 0;
         }
-    }
-
-    public void setSide(double a, double b, double c) {
-        if (isValidTriangle(a, b, c)) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        } else {
-            System.out.println("a b c input error");
-        }
-    }
-
-    public void setA(double a) {
-        if (isValidTriangle(a, this.b, this.c)) {
-            this.a = a;
-        } else {
-            System.out.println("a input error");
-        }
-    }
-
-    public void setB(double b) {
-        if (isValidTriangle(this.a, b, this.c)) {
-            this.b = b;
-        } else {
-            System.out.println("b input error");
-        }
-    }
-
-    public void setC(double c) {
-        if (isValidTriangle(this.a, this.b, c)) {
-            this.c = c;
-        } else {
-            System.out.println("c input error");
-        }
-    }
-
-    public double getA() {
-        return a;
-    }
-
-    public double getB() {
-        return b;
-    }
-
-    public double getC() {
-        return c;
     }
 
     public double getPerimeter() {
@@ -70,32 +24,31 @@ public class Triangle {
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
-    private boolean isValidTriangle(double a, double b, double c) {
-        return a + b > c && a + c > b && b + c > a;
+    public void setSide(double x, double y, double z) {
+        if (x + y > z && x + z > y && y + z > x) {
+            this.a = x;
+            this.b = y;
+            this.c = z;
+        } else {
+            this.a = 0;
+            this.b = 0;
+            this.c = 0;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "a=" + a + ",b=" + b + ",c=" + c;
-    }
-
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        double x = in.nextDouble();
-        double y = in.nextDouble();
-        double z = in.nextDouble();
-        Triangle t = new Triangle(x, y, z);
-        System.out.printf("perimeter=%.2f\n", t.getPerimeter());
-        System.out.printf("area=%.2f\n", t.getArea());
-        System.out.println(t);
-        t.setSide(t.getA() + 3, t.getB() + 2, t.getC() + 1);
-        System.out.println(t);
-        t.setA(t.getA() + 20);
-        System.out.println(t);
-        t.setB(t.getB() + 20);
-        System.out.println(t);
-        t.setC(t.getC() + 20);
-        System.out.println(t);
+        double a = in.nextDouble();
+        double b = in.nextDouble();
+        double c = in.nextDouble();
         in.close();
+
+        Triangle triangle = new Triangle(a, b, c);
+        double perimeter = triangle.getPerimeter();
+        double area = triangle.getArea();
+
+        System.out.printf("perimeter=%.1f\n", perimeter);
+        System.out.printf("area=%.1f\n", area);
+        System.out.printf("a=%.1f,b=%.1f,c=%.1f\n", triangle.a, triangle.b, triangle.c);
     }
 }
